@@ -53,20 +53,21 @@ def process_test_cases(file_path):
                 print(result)
                 output_file.write(result + "\n\n")
             else:
-                # Write matrix to output file
+                # Write matrix to output file with the new format
                 for row in matrix:
-                    print(row)
-                    output_file.write(str(row) + "\n")
+                    formatted_row = ' '.join(str(num) for num in row)
+                    print(formatted_row)
+                    output_file.write(formatted_row + "\n")
                 
                 if is_magic:
                     result = [
-                        f"Test Case: {i}: True (Sum: {row_sums[0]})",
+                        f"Test Case {i}: True (Sum: {row_sums[0]})",
                         f"Row sums: {row_sums}",
                         f"Column sums: {col_sums}",
                         f"Diagonal sums: {diag_sums}"
                     ]
                 else:
-                    result = [f"Test Case: {i}: False"]
+                    result = [f"Test Case {i}: False"]
                 
                 for line in result:
                     print(line)
